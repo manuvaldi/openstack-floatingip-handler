@@ -19,7 +19,7 @@ debug = False
 
 [RabbitMQ]
 monitoring_queue_name = floatingip
-rabbitmq_hosts = rabbitmq01,rabbitmq01,rabbitmq01
+rabbitmq_hosts = rabbitmq01,rabbitmq02,rabbitmq03
 rabbitmq_port = 5672
 user = guest
 pass = guest
