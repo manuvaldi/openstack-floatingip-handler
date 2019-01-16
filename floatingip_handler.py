@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Openstack Floating IP updates handler script"""
+"""Openstack Floating IP events handler script"""
 
 import argparse
 import ast

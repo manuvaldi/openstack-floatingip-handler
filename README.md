@@ -48,8 +48,9 @@ def callback_delete_floating_ip(data):
     print " * Floating IP %s disassociated" % data['floating_ip_address']
     unregister = json.loads(urllib2.urlopen("http://10.10.10.10/release/ipv4address?ip_address="+data['floating_ip_address']).read())
 
+```
 
-
-
-
+## Test
+```
+sh test.sh
 ```
