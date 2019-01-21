@@ -6,6 +6,7 @@ import ast
 import ConfigParser
 import json
 import os.path
+import signal
 import pika
 
 
@@ -50,6 +51,13 @@ RABBITMQ_PASS = config_parser.get('RabbitMQ', 'pass')
 
 
 # Functions
+def signal_handler(_signal, _frame):
+    # pylint: disable=W0612,W0613
+    """Signal handler func for CTRL+C"""
+    print '[*] Stopping handling!'
+    exit(0)
+
+
 def _process_msg(_channel, _method, _properties, body):
     # pylint: disable=W0612,W0613
 
@@ -111,6 +119,7 @@ while True:
                                   no_ack=True)
 
             print ' [*] Waiting for floating IP changes. To exit press CTRL+C'
+            signal.signal(signal.SIGINT, signal_handler)
             channel.start_consuming()
 
         # Do not recover on channel errors
