@@ -51,7 +51,7 @@ RABBITMQ_PASS = config_parser.get('RabbitMQ', 'pass')
 
 
 # Functions
-def signal_handler(_signal, _frame):
+def _signal_handler(_signal, _frame):
     # pylint: disable=W0612,W0613
     """Signal handler func for CTRL+C"""
     print '[*] Stopping handling!'
@@ -119,7 +119,7 @@ while True:
                                   no_ack=True)
 
             print ' [*] Waiting for floating IP changes. To exit press CTRL+C'
-            signal.signal(signal.SIGINT, signal_handler)
+            signal.signal(signal.SIGINT, _signal_handler)
             channel.start_consuming()
 
         # Do not recover on channel errors
