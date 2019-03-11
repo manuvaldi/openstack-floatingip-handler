@@ -74,6 +74,7 @@ def _process_msg(_channel, _method, _properties, body):
 
         if event_type == 'network.delete.end':
             print " * End of deleted network"
+            callback_delete_network(payload_data['network'])
 
         elif event_type == 'network.create.end':
             print " * End of created network"
