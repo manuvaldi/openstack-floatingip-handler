@@ -1,6 +1,6 @@
-# Openstack Floating IP updates handler
+# Openstack Event handler
 
-Python script to monitor and handler Floating IP events from Openstack neutron. This script create a queue with `auto_delete` feature binding to `neutron` exchange with `routing_key` equal to `notifications.info`
+Python script to monitor and handler events from Openstack neutron. This script create a queue with `auto_delete` feature binding to `neutron` exchange with `routing_key` equal to `notifications.info`
 
 ## Installation
 ```
@@ -54,3 +54,10 @@ def callback_delete_floating_ip(data):
 ```
 sh test.sh
 ```
+
+
+## Additional Scripts
+
+In this repo there are other scripts with similar installation, configuration and working
+
+- `network_handler.py`: listen for network creation / delete operations
